@@ -1,0 +1,8 @@
+[List unique list of #ifdef variables in a file]
+  unifdef/unifdef -s mosquitto/lib/memory_mosq.c | sort -u
+  
+[Generate a file withoug #ifdefs]
+  unifdef/unifdef -U__APPLE__ -U__FREEBSD__ -UREAL_WITH_MEMORY_TRACKING -o ./memory_mosq_test.c mosquitto/lib/memory_mosq.c
+  
+[Compress blank spaces around removed #ifdef]
+  unifdef/unifdef -B -UWIN32 ifdef_test.c
